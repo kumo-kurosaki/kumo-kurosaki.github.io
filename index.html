@@ -5,11 +5,19 @@
 <title>密碼保護作品集</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- 最新 js-sha256 CDN（0.10.0） -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.10.0/sha256.min.js"></script>
+<!-- 防快取載入 js-sha256 CDN -->
+<script>
+  const shaScript = document.createElement('script');
+  shaScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.10.0/sha256.min.js?t=' + new Date().getTime();
+  document.head.appendChild(shaScript);
+</script>
 
-<!-- 密碼檢查 -->
-<script src="password.js"></script>
+<!-- 防快取載入 password.js -->
+<script>
+  const pwdScript = document.createElement('script');
+  pwdScript.src = 'password.js?t=' + new Date().getTime();
+  document.head.appendChild(pwdScript);
+</script>
 
 <style>
 body {
@@ -31,7 +39,7 @@ button {
 <script>
 function submitPassword() {
   const input = document.getElementById("pwd").value;
-  if (checkPassword(input)) {
+  if (typeof checkPassword === "function" && checkPassword(input)) {
     window.location.href = "gallery.html";
   } else {
     alert("密碼錯誤");
