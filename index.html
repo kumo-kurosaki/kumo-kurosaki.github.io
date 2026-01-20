@@ -22,21 +22,19 @@ button {
 }
 </style>
 
-<!-- 🔹 同步載入本地 SHA-256 -->
-<script src="sha256.min.js"></script>
 <script src="password.js"></script>
-
 <script>
 function submitPassword() {
   const input = document.getElementById("pwd").value;
   if (typeof checkPassword === "function" && checkPassword(input)) {
-    window.location.href = "gallery.html";
+    // 成功跳轉 gallery.html 並傳入密碼
+    window.location.href = "gallery.html?pwd=" + encodeURIComponent(input);
   } else {
     alert("密碼錯誤");
   }
 }
 
-// 🔹 清除 localStorage & sessionStorage 避免舊資料干擾
+// 清除 localStorage & sessionStorage，避免舊資料干擾
 window.addEventListener("DOMContentLoaded", () => {
   localStorage.clear();
   sessionStorage.clear();
