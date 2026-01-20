@@ -6,6 +6,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
 <script src="password.js"></script>
+<style>
+/* 確保圖片自動縮放，手機友好 */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+  width: 200px;
+}
+
+.item img {
+  width: 100%;   /* 自動調整寬度 */
+  height: auto;  /* 高度依比例自動調整 */
+  border-radius: 5px;
+}
+
+.item p {
+  margin: 10px 0 5px 0;
+  font-weight: bold;
+}
+
+.item a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.item a:hover {
+  background-color: #0056b3;
+}
+
+footer {
+  margin-top: 40px;
+  font-size: 14px;
+  color: #888;
+}
+</style>
 </head>
 <body>
 <h1>歡迎進入作品集</h1>
@@ -16,7 +62,9 @@
 const params = new URLSearchParams(window.location.search);
 const pwd = params.get("pwd");
 
+// 解密作品集
 const items = getDecryptedLinks(pwd);
+
 if (items.length === 0) {
   alert("密碼錯誤或未輸入");
   window.location.href = "index.html";
@@ -36,7 +84,7 @@ if (items.length === 0) {
 </script>
 
 <footer>
-  <p>©2026 KumoKurosaki</p>
+  <p>©2026KumoKurosaki</p>
 </footer>
 
 </body>
