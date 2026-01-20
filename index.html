@@ -2,15 +2,21 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<title>作品集密碼保護</title>
-<link rel="stylesheet" href="style.css">
+<title>密碼測試</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
-<script src="password.js"></script>
 <script>
+const correctHash = "7c222fb2927d828af22f592134e8932480637c0d1c6d3a7a7ef5f5a1f5e5c6b5";
+
+function checkPassword(input) {
+  const sanitized = input.trim();
+  return sha256(sanitized) === correctHash;
+}
+
 function submitPassword() {
   const input = document.getElementById("pwd").value;
   if (checkPassword(input)) {
-    window.location.href = "gallery.html";
+    alert("密碼正確，可以進入！");
+    // window.location.href = "gallery.html";
   } else {
     alert("密碼錯誤");
   }
@@ -23,3 +29,5 @@ function submitPassword() {
 <button onclick="submitPassword()">確認</button>
 </body>
 </html>
+
+
