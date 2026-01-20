@@ -9,26 +9,24 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  margin: 0;
-  padding-bottom: 60px; /* 預留 footer 高度 */
-  min-height: 100vh;     /* 確保 body 高度至少填滿視窗 */
-  position: relative;
+  margin: 50px 0; /* 上下留白 */
 }
 
 h1.title {
   font-size: 24px;   /* 上方標題大小 */
-  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 h2.subtitle {
   font-size: 18px;   /* 密碼提示文字縮小 */
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 input[type="password"] {
   padding: 10px;
   font-size: 16px;
 }
+
 button {
   padding: 10px 20px;
   font-size: 16px;
@@ -36,16 +34,9 @@ button {
 }
 
 footer {
-  position: fixed;      /* 固定在頁面底部 */
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 40px;
-  line-height: 40px;
-  background-color: #f2f2f2;
-  color: #555;
+  margin-top: 40px;
   font-size: 14px;
-  border-top: 1px solid #ccc;
+  color: #888;
 }
 </style>
 
@@ -75,9 +66,8 @@ window.addEventListener("DOMContentLoaded", () => {
 <button onclick="submitPassword()">確認</button>
 
 <footer>
-  <p>©2026KumoKurosaki</p>
+  <p>©2026 KumoKurosaki</p>
 </footer>
 
 </body>
 </html>
-
