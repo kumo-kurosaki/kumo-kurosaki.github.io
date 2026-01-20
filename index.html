@@ -14,6 +14,17 @@ body {
   min-height: 100vh;     /* 確保 body 高度至少填滿視窗 */
   position: relative;
 }
+
+h1.title {
+  font-size: 24px;   /* 上方標題大小 */
+  margin-top: 40px;
+}
+
+h2.subtitle {
+  font-size: 18px;   /* 密碼提示文字縮小 */
+  margin-top: 20px;
+}
+
 input[type="password"] {
   padding: 10px;
   font-size: 16px;
@@ -23,6 +34,7 @@ button {
   font-size: 16px;
   cursor: pointer;
 }
+
 footer {
   position: fixed;      /* 固定在頁面底部 */
   left: 0;
@@ -56,7 +68,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
 </head>
 <body>
-<h1>請輸入密碼進入會員限定下載專區</h1>
+<h1 class="title">黒崎くも Kumo Ch.</h1>
+<h2 class="subtitle">請輸入密碼進入會員限定下載專區</h2>
+
 <input type="password" id="pwd" placeholder="輸入密碼">
 <button onclick="submitPassword()">確認</button>
 
