@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>作品集密碼保護</title>
+<link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
 <script src="password.js"></script>
 <script>
 function submitPassword() {
   const input = document.getElementById("pwd").value;
   if (checkPassword(input)) {
-    window.location.href = "gallery.html"; // 密碼正確跳轉
+    window.location.href = "gallery.html";
   } else {
     alert("密碼錯誤");
   }
