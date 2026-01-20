@@ -1,69 +1,24 @@
-/* 全站文字與排版 */
+/* style.css - 全站通用樣式 */
+
+/* body 與文字排版 */
 body {
   font-family: Arial, sans-serif;
   text-align: center;
   margin: 50px 0; /* 上下留白 */
 }
 
-/* gallery 樣式 */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px; /* 卡片間距 */
-}
-
-.item {
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 10px;
-  width: 200px;
-  box-sizing: border-box;
-}
-
-.item img {
-  width: 100%;   /* 自動調整寬度 */
-  height: auto;  /* 高度自動 */
-  border-radius: 5px;
-}
-
-.item p {
-  margin: 10px 0 5px 0;
-  font-weight: bold;
-}
-
-.item a {
-  text-decoration: none;
-  color: #fff;
-  background-color: #007bff;
-  padding: 5px 10px;
-  border-radius: 5px;
-  display: inline-block;
-}
-
-.item a:hover {
-  background-color: #0056b3;
-}
-
-/* footer 樣式 */
-footer {
-  margin-top: 40px;
-  font-size: 14px;
-  color: #888;
-}
-
-/* index.html 的標題樣式 */
+/* index.html 標題 */
 h1.title {
-  font-size: 24px;
+  font-size: 24px;   /* 上方標題大小 */
   margin-bottom: 20px;
 }
 
 h2.subtitle {
-  font-size: 18px;
+  font-size: 18px;   /* 密碼提示文字縮小 */
   margin-bottom: 20px;
 }
 
-/* input 與按鈕 */
+/* 密碼輸入框與按鈕 */
 input[type="password"] {
   padding: 10px;
   font-size: 16px;
@@ -73,4 +28,11 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+}
+
+/* footer 自然排列 */
+footer {
+  margin-top: 40px;
+  font-size: 14px;
+  color: #888;
 }
