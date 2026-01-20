@@ -1,5 +1,5 @@
 // 2016 的 SHA-256 雜湊值
-const correctHash = "1e8b2b42c2b54d8a3d5bb95e0f2ad124d18c7f39b5c6f0d2f1e1c49b6b7e6f12";
+const correctHash = "7c222fb2927d828af22f592134e8932480637c0d1c6d3a7a7ef5f5a1f5e5c6b5";
 
 function checkPassword(input) {
   return sha256(input) === correctHash;
