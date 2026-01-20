@@ -2,13 +2,13 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<title>密碼保護</title>
+<title>密碼保護作品集</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- 1️⃣ 最新穩定版本 js-sha256 CDN -->
+<!-- 最新 js-sha256 CDN（0.10.0） -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.10.0/sha256.min.js"></script>
 
-<!-- 2️⃣ password.js -->
+<!-- 密碼檢查 -->
 <script src="password.js"></script>
 
 <style>
@@ -32,7 +32,6 @@ button {
 function submitPassword() {
   const input = document.getElementById("pwd").value;
   if (checkPassword(input)) {
-    // 密碼正確，進入 gallery.html
     window.location.href = "gallery.html";
   } else {
     alert("密碼錯誤");
@@ -40,7 +39,6 @@ function submitPassword() {
 }
 </script>
 </head>
-
 <body>
 <h1>請輸入密碼進入作品集</h1>
 <input type="password" id="pwd" placeholder="輸入密碼">
