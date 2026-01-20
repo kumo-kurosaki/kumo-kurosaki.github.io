@@ -1,0 +1,72 @@
+body {
+  font-family: "Noto Sans TC", "Helvetica", "Arial", sans-serif;
+  background-color: #f4f4f9;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#pwd {
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+button {
+  display: block;
+  margin: 10px auto 30px auto;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover { background-color: #357abd; }
+
+.work {
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.work img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.work img:hover { transform: scale(1.02); }
+
+@media (max-width: 600px) {
+  #pwd, button { width: 80%; }
+  .work { width: 90%; }
+}
+
+.download-link {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 8px 16px;
+  background-color: #ff6b6b;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.download-link:hover { background-color: #e05555; }
