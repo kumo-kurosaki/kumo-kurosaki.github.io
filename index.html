@@ -5,25 +5,6 @@
 <title>密碼保護作品集</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script>
-  // 🔹 清除 localStorage & sessionStorage 避免舊資料干擾
-  window.addEventListener("DOMContentLoaded", () => {
-    localStorage.clear();
-    sessionStorage.clear();
-    console.log("✅ localStorage & sessionStorage 已清除");
-  });
-
-  // 🔹 防快取載入 js-sha256
-  const shaScript = document.createElement('script');
-  shaScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.10.0/sha256.min.js?t=' + new Date().getTime();
-  document.head.appendChild(shaScript);
-
-  // 🔹 防快取載入 password.js
-  const pwdScript = document.createElement('script');
-  pwdScript.src = 'password.js?t=' + new Date().getTime();
-  document.head.appendChild(pwdScript);
-</script>
-
 <style>
 body {
   font-family: Arial, sans-serif;
@@ -41,6 +22,11 @@ button {
 }
 </style>
 
+<!-- 🔹 同步載入 SHA-256 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.10.0/sha256.min.js"></script>
+<!-- 🔹 同步載入 password.js -->
+<script src="password.js"></script>
+
 <script>
 function submitPassword() {
   const input = document.getElementById("pwd").value;
@@ -50,7 +36,14 @@ function submitPassword() {
     alert("密碼錯誤");
   }
 }
+
+// 🔹 清除 localStorage & sessionStorage 避免舊資料干擾
+window.addEventListener("DOMContentLoaded", () => {
+  localStorage.clear();
+  sessionStorage.clear();
+});
 </script>
+
 </head>
 <body>
 <h1>請輸入密碼進入作品集</h1>
