@@ -1,7 +1,7 @@
 // password.js
 // 正確密碼：2016（半形）
 const correctHash =
-  "da6e2f539726fabd1f8cd7c9469a22b36769137975b28abc65fe2dc29e659b77";
+  "7c222fb2927d828af22f592134e8932480637c0d1c6d3a7a7ef5f5a1f5e5c6b5";
 
 /**
  * 將全形數字轉為半形
@@ -29,6 +29,7 @@ function checkPassword(input) {
 
   return hash === correctHash;
 }
+
 
 
 
