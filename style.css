@@ -1,21 +1,76 @@
+/* 全站文字與排版 */
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  margin: 0;           /* 清除預設 margin */
-  padding-bottom: 60px; /* 預留 footer 高度 */
-  min-height: 100vh;   /* 確保 body 高度至少填滿視窗 */
-  position: relative;
+  margin: 50px 0; /* 上下留白 */
 }
 
+/* gallery 樣式 */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* 卡片間距 */
+}
+
+.item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+  width: 200px;
+  box-sizing: border-box;
+}
+
+.item img {
+  width: 100%;   /* 自動調整寬度 */
+  height: auto;  /* 高度自動 */
+  border-radius: 5px;
+}
+
+.item p {
+  margin: 10px 0 5px 0;
+  font-weight: bold;
+}
+
+.item a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.item a:hover {
+  background-color: #0056b3;
+}
+
+/* footer 樣式 */
 footer {
-  position: fixed;      /* 固定在頁面底部 */
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 40px;
-  line-height: 40px;    /* 文字垂直置中 */
-  background-color: #f2f2f2;
-  color: #555;
+  margin-top: 40px;
   font-size: 14px;
-  border-top: 1px solid #ccc;
+  color: #888;
+}
+
+/* index.html 的標題樣式 */
+h1.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+h2.subtitle {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* input 與按鈕 */
+input[type="password"] {
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
