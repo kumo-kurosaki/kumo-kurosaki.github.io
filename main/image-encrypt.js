@@ -1,14 +1,12 @@
-// 加密後的圖片 URL
+// Base64 加密圖片 URL
 const encryptedImages = {
   "2026spring": "aHR0cHM6Ly9pbWFnZXMucGx1cmsuY29tLzJFTUt6S1k5ZTI1T2RwS0tuU0trbmJycy1MSlYtLnBuZw=="
 };
 
-// 解密函數
 function decryptImage(str) {
-  return atob(str); // Base64 解碼
+  return atob(str);
 }
 
-// 渲染圖片
 function renderImages() {
   for (const id in encryptedImages) {
     const container = document.getElementById(id);
@@ -20,5 +18,3 @@ function renderImages() {
     container.appendChild(img);
   }
 }
-
-window.addEventListener("DOMContentLoaded", renderImages);
