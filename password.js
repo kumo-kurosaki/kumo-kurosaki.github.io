@@ -22,7 +22,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const normalized = normalizeInput(input);
     const hash = sha256(normalized);
 
-    // 除錯（測試後可刪）
+    // 除錯（可刪除）
     console.log("正規化後輸入:", normalized);
     console.log("Hash:", hash);
 
