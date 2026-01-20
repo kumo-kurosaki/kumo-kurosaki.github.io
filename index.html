@@ -5,15 +5,20 @@
 <title>密碼保護作品集</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- 防快取載入 js-sha256 CDN -->
 <script>
+  // 🔹 清除 localStorage & sessionStorage 避免舊資料干擾
+  window.addEventListener("DOMContentLoaded", () => {
+    localStorage.clear();
+    sessionStorage.clear();
+    console.log("✅ localStorage & sessionStorage 已清除");
+  });
+
+  // 🔹 防快取載入 js-sha256
   const shaScript = document.createElement('script');
   shaScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.10.0/sha256.min.js?t=' + new Date().getTime();
   document.head.appendChild(shaScript);
-</script>
 
-<!-- 防快取載入 password.js -->
-<script>
+  // 🔹 防快取載入 password.js
   const pwdScript = document.createElement('script');
   pwdScript.src = 'password.js?t=' + new Date().getTime();
   document.head.appendChild(pwdScript);
