@@ -1,30 +1,38 @@
-// password.js
-// 正確密碼：2016（半形）
-// SHA-256 標準值: 7c222fb2927d828af22f592134e8932480637c0d1c6d3a7a7ef5f5a1f5e5c6b5
+// 密碼設定
+const correctPassword = "2016";
 
-(function() {
-  if (typeof sha256 !== "function") {
-    console.error("❌ js-sha256 尚未載入");
-    return;
+// 作品集資料（圖片 URL + 下載連結都 XOR 加密）
+const encryptedLinks = [
+  {
+    name: "2026新春",
+    img: xorEncrypt("https://images.plurk.com/2EMKZK9e2Sl7dD105Y4Xjl.png", correctPassword),
+    link: xorEncrypt("https://drive.google.com/file/d/1sf4M4s6BB9ax8o26G-S1jXvUg_d_Rq8j/view?usp=drive_link", correctPassword)
   }
+];
 
-  const correctHash = "da6e2f539726fabd1f8cd7c9469a22b36769137975b28abc65fe2dc29e659b77";
-
-  function normalizeInput(str) {
-    return str.trim().replace(/[０-９]/g, ch =>
-      String.fromCharCode(ch.charCodeAt(0) - 0xFEE0)
-    );
+// XOR 加密 / 解密函式
+function xorEncrypt(str, key) {
+  let res = "";
+  for (let i = 0; i < str.length; i++) {
+    res += String.fromCharCode(str.charCodeAt(i) ^ key.charCodeAt(i % key.length));
   }
+  return res;
+}
 
-  window.checkPassword = function(input) {
-    const normalized = normalizeInput(input);
-    const hash = sha256(normalized);
+// 驗證密碼
+function checkPassword(input) {
+  const normalized = input.trim().replace(/[０-９]/g, ch =>
+    String.fromCharCode(ch.charCodeAt(0) - 0xFEE0)
+  );
+  return normalized === correctPassword;
+}
 
-    // 🔹 除錯可刪
-    console.log("正規化後輸入:", normalized);
-    console.log("Hash:", hash);
-
-    return hash === correctHash;
-  };
-})();
-
+// 解密作品集
+function getDecryptedLinks(input) {
+  if (!checkPassword(input)) return [];
+  return encryptedLinks.map(item => ({
+    name: item.name,
+    img: xorEncrypt(item.img, input),
+    link: xorEncrypt(item.link, input)
+  }));
+}
