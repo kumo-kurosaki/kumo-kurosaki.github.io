@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  const correctHash = "da6e2f539726fabd1f8cd7c9469a22b36769137975b28abc65fe2dc29e659b77";
+  const correctHash = 'da6e2f539726fabd1f8cd7c9469a22b36769137975b28abc65fe2dc29e659b77';
 
   function normalizeInput(str) {
     return str.trim().replace(/[０-９]/g, ch =>
@@ -26,4 +26,5 @@ window.addEventListener("DOMContentLoaded", () => {
     return hash === correctHash;
   };
 });
+
 
