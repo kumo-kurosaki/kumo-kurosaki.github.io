@@ -1,38 +1,40 @@
-/* style.css - 全站通用樣式 */
-
-/* body 與文字排版 */
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
   text-align: center;
-  margin: 50px 0; /* 上下留白 */
 }
 
-/* index.html 標題 */
-h1.title {
-  font-size: 24px;   /* 上方標題大小 */
-  margin-bottom: 20px;
+header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
 }
 
-h2.subtitle {
-  font-size: 18px;   /* 密碼提示文字縮小 */
-  margin-bottom: 20px;
-}
-
-/* 密碼輸入框與按鈕 */
-input[type="password"] {
-  padding: 10px;
-  font-size: 16px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-/* footer 自然排列 */
 footer {
-  margin-top: 40px;
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: 10px;
   font-size: 14px;
   color: #888;
+  border-top: 1px solid #ddd;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.item {
+  width: 200px;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
 }
