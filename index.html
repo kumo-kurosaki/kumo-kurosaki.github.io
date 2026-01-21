@@ -1,3 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>黒崎くも Kumo Ch.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 50px 0;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+input[type="password"] {
+  padding: 10px;
+  font-size: 16px;
+  width: 200px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+footer {
+  margin-top: 40px;
+  font-size: 14px;
+  color: #888;
+}
+</style>
+
 <script src="secure.js"></script>
 <script>
 function submitPassword() {
@@ -5,10 +50,26 @@ function submitPassword() {
   const clean = raw.trim();
 
   if (_v(clean)) {
-    location.href =
+    window.location.href =
       "gallery.html?k=" + encodeURIComponent(btoa(clean));
   } else {
     alert("密碼錯誤");
   }
 }
 </script>
+
+</head>
+<body>
+
+<h1>黒崎くも Kumo Ch.</h1>
+<h2>請輸入密碼進入會員限定下載專區</h2>
+
+<input type="password" id="pwd" placeholder="輸入密碼">
+<button onclick="submitPassword()">確認</button>
+
+<footer>
+  <p>©2026KumoKurosaki</p>
+</footer>
+
+</body>
+</html>
