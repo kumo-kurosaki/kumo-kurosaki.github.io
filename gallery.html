@@ -1,22 +1,43 @@
 <script src="secure.js"></script>
 <script>
-function getKeyFromURL() {
-  const params = new URLSearchParams(window.location.search);
+document.addEventListener("DOMContentLoaded", () => {
+
+  const params = new URLSearchParams(location.search);
   const k = params.get("k");
-  if (!k) return null;
 
-  try {
-    return atob(decodeURIComponent(k));
-  } catch (e) {
-    return null;
+  if (!k) {
+    alert("未授權");
+    location.href = "index.html";
+    return;
   }
-}
 
-const key = getKeyFromURL();
-const works = key ? getSecureContent(key) : [];
+  let pwd;
+  try {
+    pwd = atob(k);
+  } catch {
+    location.href = "index.html";
+    return;
+  }
 
-if (!works.length) {
-  alert("驗證失敗，請從首頁進入");
-  location.href = "index.html";
-}
+  const items = getSecureContent(pwd);
+
+  if (!items.length) {
+    alert("密碼錯誤");
+    location.href = "index.html";
+    return;
+  }
+
+  const g = document.getElementById("gallery");
+  items.forEach(item => {
+    const d = document.createElement("div");
+    d.className = "item";
+    d.innerHTML = `
+      <img src="${item.img}">
+      <p>${item.name}</p>
+      <a href="${item.link}" target="_blank">下載</a>
+    `;
+    g.appendChild(d);
+  });
+
+});
 </script>
