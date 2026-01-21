@@ -4,38 +4,34 @@
 <meta charset="UTF-8">
 <title>黒崎くも Kumo Ch.</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- 引用外部 CSS -->
 <link rel="stylesheet" href="style.css">
-
-<script src="password.js"></script>
-<script>
-function submitPassword() {
-  const input = document.getElementById("pwd").value;
-  if (typeof checkPassword === "function" && checkPassword(input)) {
-    window.location.href = "gallery.html?pwd=" + encodeURIComponent(input);
-  } else {
-    alert("密碼錯誤");
-  }
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-  localStorage.clear();
-  sessionStorage.clear();
-});
-</script>
-
+<script src="secure.js"></script>
 </head>
-<body>
-<h1 class="title">黒崎くも Kumo Ch.</h1>
-<h2 class="subtitle">請輸入密碼進入會員限定下載專區</h2>
 
-<input type="password" id="pwd" placeholder="輸入密碼">
-<button onclick="submitPassword()">確認</button>
+<body>
+<header>
+  <h1>黒崎くも Kumo Ch.</h1>
+  <p>會員限定下載專區</p>
+</header>
+
+<main>
+  <input type="password" id="k" placeholder="請輸入存取碼">
+  <button onclick="go()">進入</button>
+</main>
 
 <footer>
-  <p>©2026KumoKurosaki</p>
+  ©2026KumoKurosaki
 </footer>
 
+<script>
+function go() {
+  const v = document.getElementById("k").value;
+  if (_v(v)) {
+    location.href = "gallery.html?x=" + encodeURIComponent(v);
+  } else {
+    alert("驗證失敗");
+  }
+}
+</script>
 </body>
 </html>
