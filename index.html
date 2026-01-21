@@ -1,14 +1,14 @@
 <script src="secure.js"></script>
 <script>
 function submitPassword() {
-  const input = document.getElementById("pwd").value;
-  if (_v(input)) {
-    window.location.href =
-      "gallery.html?k=" + encodeURIComponent(btoa(input));
+  const raw = document.getElementById("pwd").value;
+  const clean = raw.trim();
+
+  if (_v(clean)) {
+    location.href =
+      "gallery.html?k=" + encodeURIComponent(btoa(clean));
   } else {
     alert("密碼錯誤");
   }
 }
 </script>
-
-
