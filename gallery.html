@@ -2,47 +2,43 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<title>黒崎くも Kumo Ch.</title>
+<title>會員限定下載</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- 統一引用 style.css -->
 <link rel="stylesheet" href="style.css">
-<script src="password.js"></script>
-
+<script src="secure.js"></script>
 </head>
+
 <body>
-<h1>黒崎くも Kumo Ch.會員限定下載專區</h1>
-<div class="gallery" id="gallery"></div>
+<header>
+  <h1>會員限定下載專區</h1>
+</header>
 
-<script>
-// 從 URL 取得密碼
-const params = new URLSearchParams(window.location.search);
-const pwd = params.get("pwd");
-
-// 解密作品集
-const items = getDecryptedLinks(pwd);
-
-if (items.length === 0) {
-  alert("密碼錯誤或未輸入");
-  window.location.href = "index.html";
-} else {
-  const galleryDiv = document.getElementById("gallery");
-  items.forEach(item => {
-    const div = document.createElement("div");
-    div.className = "item";
-    div.innerHTML = `
-      <img src="${item.img}" alt="${item.name}">
-      <p>${item.name}</p>
-      <a href="${item.link}" target="_blank">下載</a>
-    `;
-    galleryDiv.appendChild(div);
-  });
-}
-</script>
+<div class="gallery" id="g"></div>
 
 <footer>
-  <p>©2026KumoKurosaki</p>
+  ©2026KumoKurosaki
 </footer>
 
+<script>
+const q = new URLSearchParams(location.search);
+const k = q.get("x");
+const data = getSecureContent(k);
+
+if (data.length === 0) {
+  alert("無存取權限");
+  location.href = "index.html";
+}
+
+const g = document.getElementById("g");
+data.forEach(i => {
+  g.innerHTML += `
+    <div class="item">
+      <img src="${i.img}">
+      <p>${i.name}</p>
+      <a href="${i.link}" target="_blank">下載</a>
+    </div>
+  `;
+});
+</script>
 </body>
 </html>
