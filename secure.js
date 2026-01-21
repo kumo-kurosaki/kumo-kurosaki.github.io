@@ -1,35 +1,15 @@
 /* =========================
-   驗證用
+   驗證用（Base64）
+   明文密碼：2026
    ========================= */
-const _s = "17a6";
+const _s = "MjAyNg=="; // btoa("2026")
 
-
-/* =========================
-   FXN
-   ========================= */
-function _h(str) {
-  let h = 0;
-  for (let i = 0; i < str.length; i++) {
-    h = (h << 5) - h + str.charCodeAt(i);
-    h |= 0;
-  }
-  return Math.abs(h).toString(16);
-}
-
-/* =========================
-   驗證輸入
-   ========================= */
 function _v(input) {
-  const n = input
-    .trim()
-    .replace(/[０-９]/g, c =>
-      String.fromCharCode(c.charCodeAt(0) - 0xFEE0)
-    );
-  return _h(n) === _s;
+  return btoa(input) === _s;
 }
 
 /* =========================
-   已加密作品資料（無任何明文網址）
+   已加密作品資料（不要動）
    ========================= */
 const _d = [
   {
@@ -49,16 +29,10 @@ const _d = [
   }
 ];
 
-/* =========================
-   Base64 解碼
-   ========================= */
 function _b(str) {
   return decodeURIComponent(escape(atob(str)));
 }
 
-/* =========================
-   對外唯一接口
-   ========================= */
 function getSecureContent(input) {
   if (!_v(input)) return [];
   return _d.map(x => ({
@@ -67,6 +41,3 @@ function getSecureContent(input) {
     link: _b(x.l)
   }));
 }
-
-
-
