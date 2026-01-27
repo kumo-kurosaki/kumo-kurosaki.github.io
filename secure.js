@@ -8,9 +8,6 @@ function _v(input) {
   return btoa(_n(input)) === _s;
 }
 
-/* =========================
-   已加密作品資料（不要動）
-   ========================= */
 const _d = [
   {
     t: "2025萬聖節",
@@ -41,4 +38,5 @@ function getSecureContent(input) {
     link: _b(x.l)
   }));
 }
+
 
