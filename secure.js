@@ -1,19 +1,9 @@
-/* =========================
-   驗證用（Base64）
-   明文密碼：2026
-   ========================= */
-const _s = "MjAyNg=="; // btoa("2026")
+const _s = "MjM4NTcw";
 
-/* =========================
-   統一輸入處理（只做一件事）
-   ========================= */
 function _n(v) {
   return String(v).trim();
 }
 
-/* =========================
-   驗證
-   ========================= */
 function _v(input) {
   return btoa(_n(input)) === _s;
 }
@@ -51,3 +41,4 @@ function getSecureContent(input) {
     link: _b(x.l)
   }));
 }
+
